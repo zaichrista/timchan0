@@ -41,6 +41,12 @@ Editing the Apps Script later requires Deploy > Manage deployments > Edit > New 
 - **Projects tab:** each row is a project. `order` sets position, untick `visible` to hide, add rows to add projects, `link` is optional.
 - Changes show on the next page load (no waiting). Visitors who've been before see the old version for a split second while the new one loads.
 
+## 5b. Timeline and Work tabs, new Site keys
+The site now has a hero, a timeline and a contact form (no Work/About sections).
+- Add a tab named exactly **Timeline** to the sheet (File > Import > `sheet-template/Timeline.csv` > Insert new sheet). Columns: `year`, `title`, `text`, `order`, `visible`. Each row is a dot on the line; `year` can be any text (e.g. "Now"). Until the tab exists, the page shows placeholder entries.
+- Add a tab named exactly **Work** (import `sheet-template/Work.csv`). Columns: `year`, `title`, `publication`, `link`, `order`, `visible`. One row per published article. `link` is optional; rows without one show with no arrow and aren't clickable.
+- New optional rows in the **Site** tab (key / value): `person_name`, `person_location` (top-left), `work_title`, `work_subtitle`, `contact_subtitle`, `linkedin_url`, `footer_name`. Existing `hero_title`, `hero_subtitle`, `contact_title` still apply.
+
 ## 6. Designing around it
 - Text: `data-key="hero_title"` on any element.
 - Links: `data-href-key="instagram_url"` on an `<a>`; it hides itself if the cell is empty.

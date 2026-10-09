@@ -3,9 +3,10 @@
 // HTML hooks (design however you like):
 //   data-key="hero_title"        -> element text from Site tab, row key "hero_title"
 //   data-href-key="instagram_url"-> element href from Site tab (element hidden if empty)
+//   data-src-key="hero_image"   -> <img> src from Site tab (image stays hidden if empty)
 //   data-list="Projects"         -> repeats the <template> inside it, once per visible row of that tab
 //     data-field="title"         -> text from column "title"
-//     data-field-href="link"     -> href from column "link" (element hidden if empty)
+//     data-field-href="link"     -> href from column "link" (element hidden if empty, unless it also has data-keep)
 // Anything not found in the sheet keeps the default text written in the HTML.
 (function () {
   const cfg = window.SITE_CONFIG || {};
@@ -33,7 +34,7 @@
   function setHref(el, url) {
     url = String(url || '').trim();
     if (url && SAFE_URL.test(url)) { el.setAttribute('href', url); el.hidden = false; }
-    else { el.removeAttribute('href'); el.hidden = true; }
+    else { el.removeAttribute('href'); el.hidden = !el.hasAttribute('data-keep'); } // data-keep: stay visible without a link
   }
 
   function render(data) {
@@ -46,6 +47,11 @@
     document.querySelectorAll('[data-href-key]').forEach(el => {
       const k = el.dataset.hrefKey;
       if (k in site) setHref(el, site[k]);
+    });
+
+    document.querySelectorAll('[data-src-key]').forEach(el => {
+      const url = String(site[el.dataset.srcKey] || '').trim();
+      if (url && /^(https?:|\/|[\w.-]+\/)/i.test(url)) { el.src = url; el.hidden = false; }
     });
 
     document.querySelectorAll('[data-list]').forEach(list => {
@@ -68,6 +74,7 @@
           list.appendChild(node);
         });
     });
+    window.dispatchEvent(new Event('resize')); // lets timeline.js re-measure
   }
 
   function readCache() {
@@ -83,12 +90,17 @@
     const cached = readCache();
     if (cached) render(cached); // instant paint, then refresh below
 
-    const ranges = (cfg.TABS || []).map(t => 'ranges=' + encodeURIComponent(t)).join('&');
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${cfg.SHEET_ID}/values:batchGet?${ranges}&key=${cfg.API_KEY}`;
+    // One request per tab, so a tab that doesn't exist yet (e.g. Timeline) doesn't break the others.
+    const base = `https://sheets.googleapis.com/v4/spreadsheets/${cfg.SHEET_ID}/values/`;
     try {
-      const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
-      if (!res.ok) throw new Error('Sheets API ' + res.status);
-      const data = toData((await res.json()).valueRanges || []);
+      const results = await Promise.allSettled((cfg.TABS || []).map(async t => {
+        const res = await fetch(`${base}${encodeURIComponent(t)}?key=${cfg.API_KEY}`, { signal: AbortSignal.timeout(8000) });
+        if (!res.ok) throw new Error(t + ': Sheets API ' + res.status);
+        return res.json();
+      }));
+      const ok = results.filter(r => r.status === 'fulfilled').map(r => r.value);
+      if (!ok.length) throw new Error(results[0] && results[0].reason ? results[0].reason.message : 'no tabs loaded');
+      const data = toData(ok);
       writeCache(data);
       render(data);
     } catch (err) {

@@ -5,62 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-key="site_title">Your Name — Portfolio</title>
   <meta name="description" content="Portfolio of Your Name.">
+  <link rel="stylesheet" href="https://use.typekit.net/awj5sks.css">
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="site-header">
-    <a href="#top" class="logo" data-key="brand_name">Your Name</a>
-    <nav><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-  </header>
+<body class="is-loading">
+  <div id="loader" role="status" aria-label="Loading">
+    <div class="loader-inner">
+      <div class="loader-name" aria-label="Tim Chan"><span id="loader-text" aria-hidden="true"></span><span class="caret" aria-hidden="true"></span></div>
+      <div class="loader-count" aria-hidden="true"><span id="loader-pct">0</span>%</div>
+    </div>
+  </div>
+  <noscript><style>#loader{display:none}body.is-loading{overflow:auto}.reveal{opacity:1;transform:none}</style></noscript>
 
   <main id="top">
-    <section class="hero">
-      <h1 data-key="hero_title">Designer &amp; maker of things.</h1>
-      <p data-key="hero_subtitle">A one-line intro about what you do and who you do it for.</p>
-    </section>
+    <div class="identity reveal fade" style="--i:0">
+      <span class="id-name" data-key="person_name">Timothy Wai Leung Chan</span>
+      <span class="id-place" data-key="person_location">London</span>
+    </div>
+
+    <div class="journey">
+      <svg class="journey-line reveal fade" aria-hidden="true"><path class="line-base"></path><path class="line-solid"></path></svg>
+
+      <section class="scene-hero">
+        <div class="hero-copy">
+          <h1 class="reveal" style="--i:1" data-key="hero_title">Designer &amp; maker of things.</h1>
+          <p class="reveal" style="--i:2" data-key="hero_subtitle">A one-line intro about what you do and who you do it for.</p>
+        </div>
+      </section>
+
+      <section class="scene-timeline">
+        <ol class="timeline" data-list="Timeline">
+          <!-- Default placeholders, replaced by the Timeline tab once the sheet loads -->
+          <li class="tl-item"><div class="tl-year">Now</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what is happening now. Replace this in the Timeline tab of the sheet.</p></li>
+          <li class="tl-item"><div class="tl-year">2025</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what happened this year. Replace this in the Timeline tab of the sheet.</p></li>
+          <li class="tl-item"><div class="tl-year">2024</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what happened this year. Replace this in the Timeline tab of the sheet.</p></li>
+          <li class="tl-item"><div class="tl-year">2020</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what happened this year. Replace this in the Timeline tab of the sheet.</p></li>
+          <template>
+            <li class="tl-item">
+              <div class="tl-year" data-field="year"></div>
+              <h3 class="tl-title" data-field="title"></h3>
+              <p class="tl-text" data-field="text"></p>
+            </li>
+          </template>
+        </ol>
+      </section>
+    </div>
 
     <section id="work">
-      <h2 data-key="work_title">Selected work</h2>
-      <div class="grid" data-list="Projects">
-        <!-- Default content, replaced once the sheet loads -->
-        <div class="card"><div class="thumb"></div><div class="body"><h3>Project One</h3><small>Branding · 2026</small><p>A short description.</p></div></div>
-        <template>
-          <a class="card" data-field-href="link">
-            <div class="thumb"></div>
-            <div class="body">
-              <h3 data-field="title"></h3>
-              <small><span data-field="category"></span> · <span data-field="year"></span></small>
-              <p data-field="summary"></p>
-            </div>
-          </a>
-        </template>
+      <div class="split-head">
+        <h2 data-reveal data-key="work_title">Work</h2>
+        <p class="sub" data-reveal style="--i:1" data-key="work_subtitle">Articles I've published.</p>
       </div>
-    </section>
-
-    <section id="about">
-      <h2 data-key="about_title">About</h2>
-      <p class="multiline" data-key="about_bio">Write a short bio here.</p>
+      <ol class="work-list" data-reveal style="--i:2" data-list="Work">
+        <!-- Default placeholders, replaced by the Work tab once the sheet loads -->
+        <li><a class="work-item" data-keep><span class="w-year">2025</span><span class="w-main"><span class="w-title">Placeholder article title</span><span class="w-pub">Journal or publication</span></span></a></li>
+        <li><a class="work-item" data-keep><span class="w-year">2024</span><span class="w-main"><span class="w-title">Placeholder article title</span><span class="w-pub">Journal or publication</span></span></a></li>
+        <li><a class="work-item" data-keep><span class="w-year">2022</span><span class="w-main"><span class="w-title">Placeholder article title</span><span class="w-pub">Journal or publication</span></span></a></li>
+        <template>
+          <li>
+            <a class="work-item" data-field-href="link" data-keep target="_blank" rel="noopener">
+              <span class="w-year" data-field="year"></span>
+              <span class="w-main">
+                <span class="w-title" data-field="title"></span>
+                <span class="w-pub" data-field="publication"></span>
+              </span>
+              <span class="w-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </template>
+      </ol>
     </section>
 
     <section id="contact">
-      <h2 data-key="contact_title">Get in touch</h2>
-      <p><a data-href-key="email_link" data-key="contact_email" href="mailto:you@example.com">you@example.com</a>
-         · <a data-href-key="instagram_url" data-key="instagram_label" href="#">Instagram</a></p>
+      <div class="split-head">
+        <h2 data-reveal data-key="contact_title">Get in touch</h2>
+        <p class="sub" data-reveal style="--i:1" data-key="contact_subtitle">Have a question, or want to work together? Fill in the form and I'll get back to you.</p>
+      </div>
       <form id="contact-form" novalidate>
-        <label>Name <input name="name" required></label>
-        <label>Email <input name="email" type="email" required></label>
-        <label>Message <textarea name="message" rows="5" required></textarea></label>
+        <label data-reveal style="--i:2">Name <input name="name" required></label>
+        <label data-reveal style="--i:3">Email <input name="email" type="email" required></label>
+        <label data-reveal style="--i:4">Message <textarea name="message" rows="4" required></textarea></label>
         <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit">Send</button>
+        <button type="submit" data-reveal style="--i:5">Send</button>
         <p id="form-status" role="status"></p>
       </form>
     </section>
   </main>
 
-  <footer><small data-key="footer_text">© Your Name</small></footer>
+  <footer class="site-footer">
+    <div class="footer-frost">
+      <span data-key="footer_name">Dr. Tim Chan</span>
+      <a data-href-key="linkedin_url" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
 
+  <script src="loader.js"></script>
   <script src="config.js"></script>
   <script src="content.js"></script>
+  <script src="timeline.js"></script>
+  <script src="reveal.js"></script>
   <script src="contact.js"></script>
 </body>
 </html>
