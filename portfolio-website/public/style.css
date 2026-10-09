@@ -1,6 +1,6 @@
 /* Fonts (Adobe Fonts kit awj5sks): Corporate S for titles/subtitles, Aptos Mono for body */
 :root { --font-title:"corporate-s-std-urw", Georgia, serif; --font-body:"aptos-mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
-:root { --bg-a:#f2f1ed; --bg-b:#cfe3c4; --p:0; --bg:color-mix(in srgb, var(--bg-a), var(--bg-b) calc(var(--p) * 100%)); --green:#1d5a3a; --fg:#1e1e1c; --muted:#6b6b68; --accent:#161616; --hairline:rgba(22,22,22,.14); }
+:root { --bg-a:#fbfaf7; --bg-b:#cfe3c4; --p:0; --bg:color-mix(in srgb, var(--bg-a), var(--bg-b) calc(var(--p) * 100%)); --green:#1d5a3a; --fg:#1e1e1c; --muted:#6b6b68; --accent:#161616; --hairline:rgba(22,22,22,.14); }
 :root[data-theme="dark"] { color-scheme:dark; --bg-a:#141514; --bg-b:#15301f; --green:#7cc99c; --fg:#e4e3de; --muted:#9a9a96; --accent:#e4e3de; --hairline:rgba(242,242,238,.16); }
 * { box-sizing: border-box; }
 body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.65 var(--font-body); }
