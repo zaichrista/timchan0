@@ -21,11 +21,12 @@
   <main id="top">
     <div class="identity reveal fade" style="--i:0">
       <span class="id-name" data-key="person_name">Timothy Wai Leung Chan</span>
-      <span class="id-place" data-key="person_location">London</span>
+      <span data-key="person_location">London, UK</span>
     </div>
 
     <div class="journey">
       <svg class="journey-line reveal fade" aria-hidden="true"><path class="line-base"></path><path class="line-solid"></path></svg>
+      <span class="journey-label reveal fade" style="--i:3" data-key="timeline_label">Career</span>
 
       <section class="scene-hero">
         <div class="hero-copy">
@@ -37,15 +38,43 @@
       <section class="scene-timeline">
         <ol class="timeline" data-list="Timeline">
           <!-- Default placeholders, replaced by the Timeline tab once the sheet loads -->
-          <li class="tl-item"><div class="tl-year">Now</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what is happening now. Replace this in the Timeline tab of the sheet.</p></li>
-          <li class="tl-item"><div class="tl-year">2025</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what happened this year. Replace this in the Timeline tab of the sheet.</p></li>
-          <li class="tl-item"><div class="tl-year">2024</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what happened this year. Replace this in the Timeline tab of the sheet.</p></li>
-          <li class="tl-item"><div class="tl-year">2020</div><h3 class="tl-title">Placeholder title</h3><p class="tl-text">A short description of what happened this year. Replace this in the Timeline tab of the sheet.</p></li>
+          <li class="tl-item">
+            <div class="tl-head"><span class="tl-year">Now</span><h3 class="tl-org">Organisation name <span class="tl-tag">Current</span></h3></div>
+            <p class="tl-role">Role or title</p>
+            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
+            <div class="tl-project"><span class="tl-ptitle">Project name</span><span class="tl-ptext">One line about the project.</span></div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head"><span class="tl-year">2025</span><h3 class="tl-org">Organisation name</h3></div>
+            <p class="tl-role">Role or title</p>
+            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head"><span class="tl-year">2024</span><h3 class="tl-org">Organisation name</h3></div>
+            <p class="tl-role">Role or title</p>
+            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head"><span class="tl-year">2020</span><h3 class="tl-org">Organisation name</h3></div>
+            <p class="tl-role">Role or title</p>
+            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
+          </li>
           <template>
             <li class="tl-item">
-              <div class="tl-year" data-field="year"></div>
-              <h3 class="tl-title" data-field="title"></h3>
+              <img class="tl-logo" data-field-src="logo" alt="" hidden>
+              <div class="tl-head">
+                <span class="tl-year" data-field="year"></span>
+                <h3 class="tl-org"><span data-field="org"></span> <span class="tl-tag" data-field="tag"></span></h3>
+              </div>
+              <p class="tl-role" data-field="role"></p>
               <p class="tl-text" data-field="text"></p>
+              <a class="tl-project" data-show-if="project_title" data-field-href="project_link" data-keep target="_blank" rel="noopener">
+                <img class="tl-thumb" data-field-src="project_image" alt="" hidden>
+                <span class="tl-pbody">
+                  <span class="tl-ptitle" data-field="project_title"></span>
+                  <span class="tl-ptext" data-field="project_text"></span>
+                </span>
+              </a>
             </li>
           </template>
         </ol>
@@ -95,10 +124,15 @@
 
   <footer class="site-footer">
     <div class="footer-frost">
-      <span data-key="footer_name">Dr. Tim Chan</span>
       <a data-href-key="linkedin_url" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <i class="sep" aria-hidden="true"></i>
+      <a data-href-key="email_link" href="mailto:you@example.com">Email</a>
+      <i class="sep" aria-hidden="true"></i>
+      <a href="#top">Back to top</a>
     </div>
   </footer>
+
+  <div class="copyright"><div class="footer-frost"><span data-key="copyright_text">© 2026 ZC Studios</span></div></div>
 
   <script src="loader.js"></script>
   <script src="config.js"></script>

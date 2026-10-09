@@ -6,6 +6,8 @@
 //   data-src-key="hero_image"   -> <img> src from Site tab (image stays hidden if empty)
 //   data-list="Projects"         -> repeats the <template> inside it, once per visible row of that tab
 //     data-field="title"         -> text from column "title"
+//     data-field-src="logo"       -> <img> src from column "logo" (image stays hidden if empty)
+//     data-show-if="title"        -> element hidden when column "title" is empty
 //     data-field-href="link"     -> href from column "link" (element hidden if empty, unless it also has data-keep)
 // Anything not found in the sheet keeps the default text written in the HTML.
 (function () {
@@ -71,6 +73,13 @@
             el.hidden = String(v).trim() === '';
           });
           node.querySelectorAll('[data-field-href]').forEach(el => setHref(el, row[el.dataset.fieldHref]));
+          node.querySelectorAll('[data-field-src]').forEach(el => {
+            const url = String(row[el.dataset.fieldSrc] || '').trim();
+            if (url && /^(https?:|\/|[\w.-]+\/)/i.test(url)) { el.src = url; el.hidden = false; }
+          });
+          node.querySelectorAll('[data-show-if]').forEach(el => {
+            if (String(row[el.dataset.showIf] ?? '').trim() === '') el.hidden = true;
+          });
           list.appendChild(node);
         });
     });

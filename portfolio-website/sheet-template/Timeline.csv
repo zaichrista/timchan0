@@ -1,5 +1,5 @@
-year,title,text,order,visible
-Now,Placeholder title,A short description of what is happening now.,1,TRUE
-2025,Placeholder title,A short description of what happened this year.,2,TRUE
-2024,Placeholder title,A short description of what happened this year.,3,TRUE
-2020,Placeholder title,A short description of what happened this year.,4,TRUE
+year,org,role,text,tag,logo,project_title,project_text,project_image,project_link,order,visible
+Now,Organisation name,Role or title,A short description of the work.,Current,,Project name,One line about the project.,,,1,TRUE
+2025,Organisation name,Role or title,A short description of the work.,,,,,,,2,TRUE
+2024,Organisation name,Role or title,A short description of the work.,,,,,,,3,TRUE
+2020,Organisation name,Role or title,A short description of the work.,,,,,,,4,TRUE

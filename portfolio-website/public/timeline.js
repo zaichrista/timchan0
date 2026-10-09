@@ -27,25 +27,36 @@
     // The timeline block (line + text) sits left of centre, so the line has room to curve.
     const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
     const GAP = 2.25 * rem, PAD = 16;
-    const textW = Math.min(28 * rem, W - 24 - GAP - PAD);
+    const textW = Math.min(34 * rem, W - 24 - GAP - PAD);
     const lineX = Math.max(24, (W - (textW + GAP)) / 2 - W * 0.09);
     journey.style.setProperty('--line-x', lineX + 'px');
 
     const hero = journey.querySelector('.scene-hero');
-    // Start just left of the first letter of the title, level with its first line. y comes from layout (not the
-    // animated bounding box) so the entrance transform doesn't skew it.
-    const sub = hero.querySelector('.hero-copy h1');
+    // x: just left of the first letter of the title. y: the label is centred on the title's
+    // last line (the line with "things"), and the line begins directly under the label.
+    // Vertical positions come from layout offsets plus rect differences, so the
+    // entrance transform doesn't skew them.
+    const title = hero.querySelector('.hero-copy h1');
     const range = document.createRange();
-    range.selectNodeContents(sub);
-    const first = range.getClientRects()[0];
-    const lh = parseFloat(getComputedStyle(sub).lineHeight) || 24;
-    const x0 = first ? first.left - jr.left - 18 : W / 2;
-    const y0 = sub.offsetTop + lh / 2;
+    range.selectNodeContents(title);
+    const rects = range.getClientRects();
+    const first = rects[0], last = rects[rects.length - 1];
+    const x0 = first ? first.left - jr.left - 40 : W / 2;
+    const midY = last ? title.offsetTop + (last.top - title.getBoundingClientRect().top) + last.height / 2
+                      : title.offsetTop + title.offsetHeight / 2;
+
+    const label = journey.querySelector('.journey-label');
+    let y0 = midY;
+    if (label) {
+      label.style.left = (x0 - label.offsetWidth / 2) + 'px';
+      label.style.top = (midY - label.offsetHeight / 2) + 'px';
+      y0 = midY + label.offsetHeight / 2 + 10;
+    }
     startY = y0;
 
     const items = [...journey.querySelectorAll('.tl-item')];
     const ys = items.map(item => {
-      const year = item.querySelector('.tl-year') || item;
+      const year = item.querySelector('.tl-head') || item;
       const r = year.getBoundingClientRect();
       return r.top - jr.top + r.height / 2;
     });
