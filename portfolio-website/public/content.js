@@ -46,6 +46,10 @@
       const k = el.dataset.key;
       if (k in site) el.textContent = site[k];
     });
+    document.querySelectorAll('[data-content-key]').forEach(el => {
+      const k = el.dataset.contentKey;
+      if (k in site) el.setAttribute('content', site[k]);
+    });
     document.querySelectorAll('[data-href-key]').forEach(el => {
       const k = el.dataset.hrefKey;
       if (k in site) setHref(el, site[k]);

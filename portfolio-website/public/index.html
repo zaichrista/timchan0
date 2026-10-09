@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-key="site_title">Your Name — Portfolio</title>
-  <meta name="description" content="Portfolio of Your Name.">
+  <meta name="description" content="Portfolio of Timothy Wai Leung Chan." data-content-key="site_description">
   <link rel="stylesheet" href="https://use.typekit.net/awj5sks.css">
   <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="stylesheet" href="style.css">
@@ -129,11 +129,11 @@
         <p class="sub" data-reveal style="--i:1" data-key="contact_subtitle">Have a question, or want to work together? Fill in the form and I'll get back to you.</p>
       </div>
       <form id="contact-form" novalidate>
-        <label data-reveal style="--i:2">Name <input name="name" required></label>
-        <label data-reveal style="--i:3">Email <input name="email" type="email" required></label>
-        <label data-reveal style="--i:4">Message <textarea name="message" rows="4" required></textarea></label>
+        <label data-reveal style="--i:2"><span data-key="form_name">Name</span> <input name="name" required></label>
+        <label data-reveal style="--i:3"><span data-key="form_email">Email</span> <input name="email" type="email" required></label>
+        <label data-reveal style="--i:4"><span data-key="form_message">Message</span> <textarea name="message" rows="4" required></textarea></label>
         <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit" data-reveal style="--i:5">Send</button>
+        <button type="submit" data-reveal style="--i:5" data-key="form_send">Send</button>
         <p id="form-status" role="status"></p>
       </form>
     </section>
@@ -141,21 +141,21 @@
 
   <footer class="site-footer">
     <div class="footer-frost">
-      <a data-href-key="linkedin_url" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a data-href-key="linkedin_url" data-key="footer_linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
       <i class="sep" aria-hidden="true"></i>
-      <a href="https://scholar.google.com/citations?hl=en&amp;user=tL_lSFEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a data-href-key="scholar_url" data-key="footer_scholar" href="https://scholar.google.com/citations?hl=en&amp;user=tL_lSFEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       <i class="sep" aria-hidden="true"></i>
-      <a class="to-top" href="#top">Back to top</a>
+      <a class="to-top" href="#top" data-key="footer_top">Back to top</a>
       <i class="sep" aria-hidden="true"></i>
-      <a data-href-key="email_link" href="mailto:you@example.com">Email</a>
+      <a data-href-key="email_link" data-key="footer_email" href="mailto:you@example.com">Email</a>
     </div>
   </footer>
 
   <div class="copyright"><div class="footer-frost"><span data-key="copyright_text">© 2026 ZC Studios</span></div></div>
 
   <script src="theme.js"></script>
-  <script src="loader.js"></script>
   <script src="config.js"></script>
+  <script src="loader.js"></script>
   <script src="content.js"></script>
   <script src="timeline.js"></script>
   <script src="reveal.js"></script>

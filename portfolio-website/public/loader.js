@@ -1,5 +1,13 @@
 (function () {
-  var NAME = 'Tim Chan', DURATION = 2000, TYPE_BY = 0.6, FONT_TIMEOUT = 6000; // name is fully typed by 60% of the load
+  // The name comes from the sheet; it's read from the last cached copy so the typing can start before the fetch finishes.
+  function cachedName() {
+    try {
+      var id = (window.SITE_CONFIG || {}).SHEET_ID;
+      var site = (JSON.parse(localStorage.getItem('site-content-v1:' + id)) || {}).Site || {};
+      return site.loader_name || site.person_name || 'Tim Chan';
+    } catch (e) { return 'Tim Chan'; }
+  }
+  var NAME = cachedName(), DURATION = 2000, TYPE_BY = 0.6, FONT_TIMEOUT = 6000; // name is fully typed by 60% of the load
   var loader = document.getElementById('loader');
   var text = document.getElementById('loader-text');
   var pct = document.getElementById('loader-pct');
