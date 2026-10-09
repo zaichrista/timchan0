@@ -1,4 +1,2 @@
 node_modules
-.env
-data/messages.jsonl
 .DS_Store

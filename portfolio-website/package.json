@@ -1,18 +1,12 @@
 {
   "name": "portfolio-website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "main": "server.js",
+  "description": "Static portfolio driven by a Google Sheet. Express is for local preview only.",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js"
   },
   "engines": { "node": ">=18" },
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-rate-limit": "^7.4.0",
-    "helmet": "^7.1.0",
-    "nodemailer": "^6.9.14"
-  }
+  "dependencies": { "express": "^4.19.2" }
 }

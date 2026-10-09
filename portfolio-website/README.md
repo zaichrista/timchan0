@@ -1,20 +1,10 @@
 # Portfolio Website
 
-Node + Express backend serving a static frontend.
+Static site on GitHub Pages. All text and links come from a Google Sheet the client edits; the contact form saves to the sheet via Google Apps Script. No server in production.
 
-## Run
-```bash
-npm install
-cp .env.example .env   # optional: add SMTP details to get contact messages by email
-npm run dev            # http://localhost:3000
-```
-
-## Structure
-- `server.js` — Express app (helmet, JSON parsing, static files, error handling)
-- `routes/projects.js` — `GET /api/projects` (optional `?category=`), `GET /api/projects/:id`
-- `routes/contact.js` — `POST /api/contact` (validation, honeypot, rate limit 5/15min, saved to `data/messages.jsonl`, emailed if SMTP is set)
-- `data/projects.json` — edit this to add your work
-- `public/` — HTML, CSS, JS frontend
-
-## Deploy
-Any Node host (Render, Railway, Fly.io, a VPS). Set the env vars from `.env.example`; start command is `npm start`.
+- `public/` — the site (deployed as is). `config.js` holds the sheet ID, API key and form URL.
+- `public/content.js` — fills the page from the sheet (cached in the browser, falls back to the HTML defaults).
+- `apps-script/Code.gs` — contact form backend.
+- `sheet-template/website-content.xlsx` — one workbook with all three tabs; import it into Google Sheets.
+- `SETUP.md` — step-by-step setup and hand-off guide.
+- `server.js` — optional local preview: `npm install && npm run dev` (http://localhost:3000).
