@@ -38,7 +38,7 @@ body:not(.is-loading) .reveal { opacity:1; transform:none; transition-delay:calc
 
 /* Scene 1: hero, set high and centred */
 .journey { position:relative; }
-.scene-hero { position:relative; z-index:1; min-height:66svh; display:grid; justify-content:center; align-content:start; padding:clamp(9rem, 36vh, 20rem) 1rem 4rem; text-align:center; }
+.scene-hero { position:relative; z-index:1; min-height:100svh; box-sizing:border-box; display:grid; justify-content:center; align-content:start; padding:20rem 1rem 4rem; text-align:center; }
 .hero-copy { max-width:clamp(22rem, 40vw, 36rem); }
 .hero-copy h1 { font-size:clamp(1.9rem, 4.2vw, 3.1rem); line-height:1.08; margin:0 0 1rem; }
 .hero-copy p { font-family:var(--font-title); font-weight:300; font-size:clamp(.95rem, 1.2vw, 1.1rem); color:var(--muted); margin:0; }
@@ -55,7 +55,7 @@ body:not(.is-loading) .reveal { opacity:1; transform:none; transition-delay:calc
 .journey-label { display:flex; flex-direction:column; align-items:center; gap:.7rem; position:absolute; z-index:2; white-space:nowrap; pointer-events:none; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--green); }
 .snowflake { display:block; width:2.6rem; height:2.6rem; background:var(--green); -webkit-mask:url(snowflake.png) center/contain no-repeat; mask:url(snowflake.png) center/contain no-repeat; transform:rotate(calc(var(--spin, 0) * 1deg)); }
 .scene-timeline { position:relative; z-index:1; }
-.timeline { list-style:none; margin:0; padding:4vh 1rem 2vh calc(var(--line-x, 28px) + 2.25rem); }
+.timeline { list-style:none; margin:0; padding:2.25rem 1rem 2vh calc(var(--line-x, 28px) + 2.25rem); }
 .tl-item { position:relative; max-width:34rem; margin-bottom:clamp(3.5rem, 9vh, 6rem); opacity:.3; transition:opacity .8s ease; }
 .tl-item:last-child { margin-bottom:0; }
 .tl-item.reached { opacity:1; }
@@ -126,12 +126,11 @@ button:disabled { opacity:.5; }
 
 @media (max-width: 899px) {
   .tl-year { position:static; transform:none; margin:0 0 .25rem; display:block; }
-  .journey-label { display:none; }
   .site-footer { bottom:1.75rem; }
   .copyright { bottom:0; }
   .copyright .footer-frost { padding:.5rem 1rem; }
   .footer-frost { gap:.7rem; padding:1rem 1.5rem; letter-spacing:.1em; }
-  .scene-hero { display:block; min-height:0; padding:6.5rem 1.25rem 5rem; }
+  .scene-hero { display:block; padding:6.5rem 1.25rem 4rem; }
   .hero-copy { max-width:none; }
   #work, #contact { grid-template-columns:1fr; padding-top:4.5rem; }
 }
