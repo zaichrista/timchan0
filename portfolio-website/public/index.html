@@ -6,7 +6,7 @@
   <title data-key="site_title">Your Name — Portfolio</title>
   <meta name="description" content="Portfolio of Your Name.">
   <link rel="stylesheet" href="https://use.typekit.net/awj5sks.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-loading">
@@ -18,6 +18,11 @@
   </div>
   <noscript><style>#loader{display:none}body.is-loading{overflow:auto}.reveal{opacity:1;transform:none}</style></noscript>
 
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+    <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+  </button>
+
   <main id="top">
     <div class="identity reveal fade" style="--i:0">
       <span class="id-name" data-key="person_name">Timothy Wai Leung Chan</span>
@@ -26,7 +31,7 @@
 
     <div class="journey">
       <svg class="journey-line reveal fade" aria-hidden="true"><path class="line-base"></path><path class="line-solid"></path></svg>
-      <span class="journey-label reveal fade" style="--i:3" data-key="timeline_label">Career</span>
+      <span class="journey-label reveal fade" style="--i:3"><span class="snowflake" aria-hidden="true"></span><span data-key="timeline_label">Career</span></span>
 
       <section class="scene-hero">
         <div class="hero-copy">
@@ -37,27 +42,34 @@
 
       <section class="scene-timeline">
         <ol class="timeline" data-list="Timeline">
-          <!-- Default placeholders, replaced by the Timeline tab once the sheet loads -->
+          <!-- Default content, replaced by the Timeline tab once the sheet loads -->
           <li class="tl-item">
-            <div class="tl-head"><span class="tl-year">Now</span><h3 class="tl-org">Organisation name <span class="tl-tag">Current</span></h3></div>
-            <p class="tl-role">Role or title</p>
-            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
-            <div class="tl-project"><span class="tl-ptitle">Project name</span><span class="tl-ptext">One line about the project.</span></div>
+            <div class="tl-head"><span class="tl-year">Now</span><h3 class="tl-org">(TBC)</h3></div>
+            <p class="tl-role">(TBC)</p>
+            <p class="tl-text">A new role, details to follow.</p>
           </li>
           <li class="tl-item">
-            <div class="tl-head"><span class="tl-year">2025</span><h3 class="tl-org">Organisation name</h3></div>
-            <p class="tl-role">Role or title</p>
-            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
+            <div class="tl-head"><span class="tl-year">2025 &ndash; 2026</span><h3 class="tl-org">Center for Quantum Information and Quantum Biology, Osaka</h3></div>
+            <p class="tl-role">Visiting Quantum Error Correction Researcher</p>
+            <p class="tl-text">Built a package for generating the logical Clifford group from fold-transversal gates on high-rate codes, and explored decoder confidence and algorithmic fault tolerance in Knill error correction.</p>
+            <a class="tl-project" href="https://arxiv.org/pdf/2602.09788" target="_blank" rel="noopener"><span class="tl-pbody"><span class="tl-ptitle">qrmfold</span><span class="tl-ptext">Paper and PyPI package: the full logical Clifford group for high-rate Reed&ndash;Muller codes.</span></span></a>
           </li>
           <li class="tl-item">
-            <div class="tl-head"><span class="tl-year">2024</span><h3 class="tl-org">Organisation name</h3></div>
-            <p class="tl-role">Role or title</p>
-            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
+            <div class="tl-head"><span class="tl-year">2024 &ndash; 2026</span><h3 class="tl-org">Quantum Motion</h3></div>
+            <p class="tl-role">Quantum Error Correction Consultant</p>
+            <p class="tl-text">Guided the implementation of a streaming decoder on FPGA and co-wrote a 15-page report surveying decoders.</p>
+            <a class="tl-project" href="https://arxiv.org/pdf/2406.01701" target="_blank" rel="noopener"><span class="tl-pbody"><span class="tl-ptitle">Snowflake: A Distributed Streaming Decoder</span><span class="tl-ptext">A streaming decoder for quantum error correction.</span></span></a>
           </li>
           <li class="tl-item">
-            <div class="tl-head"><span class="tl-year">2020</span><h3 class="tl-org">Organisation name</h3></div>
-            <p class="tl-role">Role or title</p>
-            <p class="tl-text">A short description of the work. Replace this in the Timeline tab of the sheet.</p>
+            <div class="tl-head"><span class="tl-year">2022 &ndash; 2026</span><h3 class="tl-org">University of Oxford</h3></div>
+            <p class="tl-role">PhD, Quantum Error Correction</p>
+            <p class="tl-text">Funded by an EPSRC DTP Studentship. Research on decoders and entanglement, including a strictly local union&ndash;find decoder.</p>
+            <a class="tl-project" href="https://arxiv.org/pdf/2305.18534" target="_blank" rel="noopener"><span class="tl-pbody"><span class="tl-ptitle">Actis: A Strictly Local Union&ndash;Find Decoder</span><span class="tl-ptext">A decoder for quantum error correction.</span></span></a>
+          </li>
+          <li class="tl-item">
+            <div class="tl-head"><span class="tl-year">2018 &ndash; 2022</span><h3 class="tl-org">University of Oxford</h3></div>
+            <p class="tl-role">MPhys, Physics</p>
+            <p class="tl-text">Awarded the Gibbs Prize for Best MPhys Research Project, and held a College Scholarship.</p>
           </li>
           <template>
             <li class="tl-item">
@@ -87,10 +99,15 @@
         <p class="sub" data-reveal style="--i:1" data-key="work_subtitle">Articles I've published.</p>
       </div>
       <ol class="work-list" data-reveal style="--i:2" data-list="Work">
-        <!-- Default placeholders, replaced by the Work tab once the sheet loads -->
-        <li><a class="work-item" data-keep><span class="w-year">2025</span><span class="w-main"><span class="w-title">Placeholder article title</span><span class="w-pub">Journal or publication</span></span></a></li>
-        <li><a class="work-item" data-keep><span class="w-year">2024</span><span class="w-main"><span class="w-title">Placeholder article title</span><span class="w-pub">Journal or publication</span></span></a></li>
-        <li><a class="work-item" data-keep><span class="w-year">2022</span><span class="w-main"><span class="w-title">Placeholder article title</span><span class="w-pub">Journal or publication</span></span></a></li>
+        <!-- Default content, replaced by the Work tab once the sheet loads -->
+        <li><a class="work-item" href="https://arxiv.org/pdf/2609.17706" target="_blank" rel="noopener"><span class="w-year">2026</span><span class="w-main"><span class="w-title">Diagnosing and Restoring the Degraded Fault Distance of Magic State Cultivation</span><span class="w-pub">arXiv preprint &middot; with A. Strikis, Z. Sun, Z. Cai</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
+        <li><a class="work-item" href="https://arxiv.org/pdf/2608.10576" target="_blank" rel="noopener"><span class="w-year">2026</span><span class="w-main"><span class="w-title">Stream Decoding with Confidence Scores at Room and Cryogenic Temperatures</span><span class="w-pub">arXiv preprint &middot; with M. Tahaab, J. Kirkman, S. C. Benjamin</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
+        <li><a class="work-item" href="https://arxiv.org/pdf/2602.09788" target="_blank" rel="noopener"><span class="w-year">2026</span><span class="w-main"><span class="w-title">Construction of the full logical Clifford group for high-rate quantum Reed&ndash;Muller codes using only transversal and fold-transversal gates</span><span class="w-pub">arXiv preprint &middot; with T. Tansuwannont, R. Takagi</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
+        <li><a class="work-item" href="https://arxiv.org/pdf/2406.01701" target="_blank" rel="noopener"><span class="w-year">2026</span><span class="w-main"><span class="w-title">Snowflake: A distributed streaming decoder</span><span class="w-pub">Quantum 10, 2033</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
+        <li><a class="work-item" href="https://arxiv.org/pdf/2512.15689" target="_blank" rel="noopener"><span class="w-year">2025</span><span class="w-main"><span class="w-title">Error mitigation for logical circuits using decoder confidence</span><span class="w-pub">arXiv preprint &middot; with M. Din&#259;, S. C. Benjamin</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
+        <li><a class="work-item" href="https://arxiv.org/pdf/2403.06896" target="_blank" rel="noopener"><span class="w-year">2025</span><span class="w-main"><span class="w-title">An entanglement monotone from the contextual fraction</span><span class="w-pub">New Journal of Physics 27(5), 054506 &middot; with A. Constantin</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
+        <li><a class="work-item" href="https://arxiv.org/pdf/2411.02505" target="_blank" rel="noopener"><span class="w-year">2024</span><span class="w-main"><span class="w-title">Benchmarking accuracy in an emulated memory experiment</span><span class="w-pub">arXiv preprint</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
+        <li><a class="work-item" href="https://arxiv.org/pdf/2305.18534" target="_blank" rel="noopener"><span class="w-year">2023</span><span class="w-main"><span class="w-title">Actis: A strictly local union&ndash;find decoder</span><span class="w-pub">Quantum 7, 1183 &middot; with S. C. Benjamin</span></span><span class="w-arrow" aria-hidden="true">&#8599;</span></a></li>
         <template>
           <li>
             <a class="work-item" data-field-href="link" data-keep target="_blank" rel="noopener">
@@ -126,14 +143,17 @@
     <div class="footer-frost">
       <a data-href-key="linkedin_url" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
       <i class="sep" aria-hidden="true"></i>
-      <a data-href-key="email_link" href="mailto:you@example.com">Email</a>
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=tL_lSFEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       <i class="sep" aria-hidden="true"></i>
-      <a href="#top">Back to top</a>
+      <a class="to-top" href="#top">Back to top</a>
+      <i class="sep" aria-hidden="true"></i>
+      <a data-href-key="email_link" href="mailto:you@example.com">Email</a>
     </div>
   </footer>
 
   <div class="copyright"><div class="footer-frost"><span data-key="copyright_text">© 2026 ZC Studios</span></div></div>
 
+  <script src="theme.js"></script>
   <script src="loader.js"></script>
   <script src="config.js"></script>
   <script src="content.js"></script>

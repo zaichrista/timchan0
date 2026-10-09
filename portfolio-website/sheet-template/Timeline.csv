@@ -1,5 +1,6 @@
 year,org,role,text,tag,logo,project_title,project_text,project_image,project_link,order,visible
-Now,Organisation name,Role or title,A short description of the work.,Current,,Project name,One line about the project.,,,1,TRUE
-2025,Organisation name,Role or title,A short description of the work.,,,,,,,2,TRUE
-2024,Organisation name,Role or title,A short description of the work.,,,,,,,3,TRUE
-2020,Organisation name,Role or title,A short description of the work.,,,,,,,4,TRUE
+Now,(TBC),(TBC),"A new role, details to follow.",,,,,,,1,TRUE
+2025 – 2026,"Center for Quantum Information and Quantum Biology, Osaka",Visiting Quantum Error Correction Researcher,"Built a package for generating the logical Clifford group from fold-transversal gates on high-rate codes, and explored decoder confidence and algorithmic fault tolerance in Knill error correction.",,,qrmfold,Paper and PyPI package: the full logical Clifford group for high-rate Reed–Muller codes.,,https://arxiv.org/pdf/2602.09788,2,TRUE
+2024 – 2026,Quantum Motion,Quantum Error Correction Consultant,Guided the implementation of a streaming decoder on FPGA and co-wrote a 15-page report surveying decoders.,,,Snowflake: A Distributed Streaming Decoder,A streaming decoder for quantum error correction.,,https://arxiv.org/pdf/2406.01701,3,TRUE
+2022 – 2026,University of Oxford,"PhD, Quantum Error Correction","Funded by an EPSRC DTP Studentship. Research on decoders and entanglement, including a strictly local union–find decoder.",,,Actis: A Strictly Local Union–Find Decoder,A decoder for quantum error correction.,,https://arxiv.org/pdf/2305.18534,4,TRUE
+2018 – 2022,University of Oxford,"MPhys, Physics","Awarded the Gibbs Prize for Best MPhys Research Project, and held a College Scholarship.",,,,,,,5,TRUE

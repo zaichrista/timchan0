@@ -1,4 +1,9 @@
 year,title,publication,link,order,visible
-2025,Placeholder article title,Journal or publication,,1,TRUE
-2024,Placeholder article title,Journal or publication,,2,TRUE
-2022,Placeholder article title,Journal or publication,,3,TRUE
+2026,Diagnosing and Restoring the Degraded Fault Distance of Magic State Cultivation,"arXiv preprint · with A. Strikis, Z. Sun, Z. Cai",https://arxiv.org/pdf/2609.17706,1,TRUE
+2026,Stream Decoding with Confidence Scores at Room and Cryogenic Temperatures,"arXiv preprint · with M. Tahaab, J. Kirkman, S. C. Benjamin",https://arxiv.org/pdf/2608.10576,2,TRUE
+2026,Construction of the full logical Clifford group for high-rate quantum Reed–Muller codes using only transversal and fold-transversal gates,"arXiv preprint · with T. Tansuwannont, R. Takagi",https://arxiv.org/pdf/2602.09788,3,TRUE
+2026,Snowflake: A distributed streaming decoder,"Quantum 10, 2033",https://arxiv.org/pdf/2406.01701,4,TRUE
+2025,Error mitigation for logical circuits using decoder confidence,"arXiv preprint · with M. Dină, S. C. Benjamin",https://arxiv.org/pdf/2512.15689,5,TRUE
+2025,An entanglement monotone from the contextual fraction,"New Journal of Physics 27(5), 054506 · with A. Constantin",https://arxiv.org/pdf/2403.06896,6,TRUE
+2024,Benchmarking accuracy in an emulated memory experiment,arXiv preprint,https://arxiv.org/pdf/2411.02505,7,TRUE
+2023,Actis: A strictly local union–find decoder,"Quantum 7, 1183 · with S. C. Benjamin",https://arxiv.org/pdf/2305.18534,8,TRUE

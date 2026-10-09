@@ -32,25 +32,19 @@
     journey.style.setProperty('--line-x', lineX + 'px');
 
     const hero = journey.querySelector('.scene-hero');
-    // x: just left of the first letter of the title. y: the label is centred on the title's
-    // last line (the line with "things"), and the line begins directly under the label.
-    // Vertical positions come from layout offsets plus rect differences, so the
-    // entrance transform doesn't skew them.
-    const title = hero.querySelector('.hero-copy h1');
-    const range = document.createRange();
-    range.selectNodeContents(title);
-    const rects = range.getClientRects();
-    const first = rects[0], last = rects[rects.length - 1];
-    const x0 = first ? first.left - jr.left - 40 : W / 2;
-    const midY = last ? title.offsetTop + (last.top - title.getBoundingClientRect().top) + last.height / 2
-                      : title.offsetTop + title.offsetHeight / 2;
-
+    // The label (snowflake above "Career") sits centred just below the subheading, and the
+    // line begins directly under it. Vertical positions come from layout offsets plus rect
+    // differences, so the entrance transform doesn't skew them.
+    const sub = hero.querySelector('.hero-copy p');
+    const x0 = W / 2;
+    const subBottom = sub.offsetTop + sub.offsetHeight + (hero.offsetTop || 0);
     const label = journey.querySelector('.journey-label');
-    let y0 = midY;
+    let y0 = subBottom + 24;
     if (label) {
+      const labelTop = subBottom + 28;
       label.style.left = (x0 - label.offsetWidth / 2) + 'px';
-      label.style.top = (midY - label.offsetHeight / 2) + 'px';
-      y0 = midY + label.offsetHeight / 2 + 10;
+      label.style.top = labelTop + 'px';
+      y0 = labelTop + label.offsetHeight + 10;
     }
     startY = y0;
 
@@ -129,6 +123,9 @@
     // Background drifts from off-white to off-white with a hint of green as you scroll down.
     const p = Math.min(1, Math.max(0, window.scrollY / Math.max(1, journeyH - window.innerHeight * 0.4)));
     document.documentElement.style.setProperty('--p', p.toFixed(3));
+    // The snowflake turns slowly as you scroll.
+    document.documentElement.style.setProperty('--spin', (window.scrollY * 0.4).toFixed(2));
+    document.documentElement.classList.toggle('scrolled', window.scrollY > 10);
   }
 
   let queued = false;
