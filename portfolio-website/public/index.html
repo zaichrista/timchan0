@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="#top" class="logo">Your Name</a>
+    <nav><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1>Designer &amp; maker of things.</h1>
+      <p>A one-line intro about what you do and who you do it for.</p>
+    </section>
+
+    <section id="work">
+      <h2>Selected work</h2>
+      <div id="projects" class="grid" aria-live="polite">Loading…</div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Write a short bio here.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Get in touch</h2>
+      <form id="contact-form" novalidate>
+        <label>Name <input name="name" required></label>
+        <label>Email <input name="email" type="email" required></label>
+        <label>Message <textarea name="message" rows="5" required></textarea></label>
+        <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">Send</button>
+        <p id="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer><small>© <span id="year"></span> Your Name</small></footer>
+  <script src="script.js"></script>
+</body>
+</html>

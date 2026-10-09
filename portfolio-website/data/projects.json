@@ -1,0 +1,20 @@
+[
+  {
+    "id": "project-one",
+    "title": "Project One",
+    "category": "Branding",
+    "year": 2026,
+    "summary": "A short description of what this project was and the result.",
+    "image": "",
+    "link": ""
+  },
+  {
+    "id": "project-two",
+    "title": "Project Two",
+    "category": "Web Design",
+    "year": 2025,
+    "summary": "A short description of what this project was and the result.",
+    "image": "",
+    "link": ""
+  }
+]
